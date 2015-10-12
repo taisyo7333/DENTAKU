@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CalculationServices;
+
 namespace CalculatorApp
 {
     /// <summary>
@@ -15,6 +17,7 @@ namespace CalculatorApp
     /// </summary>
     public partial class FormCalcApp : Form
     {
+        private CalcServicesApi api = new CalcServicesApi();
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -29,7 +32,8 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void FormCalcApp_Load(object sender, EventArgs e)
         {
-
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 0(zero) button clicked event handler.
@@ -39,7 +43,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput0_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(0);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 1(One) button clicked event handler.
@@ -49,7 +55,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput1_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(1);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 2(Two) button clicked event handler.
@@ -59,7 +67,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput2_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(2);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 3(Three) button clicked event handler.
@@ -69,7 +79,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput3_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(3);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 4(Four) button clicked event handler.
@@ -79,7 +91,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput4_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(4);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 5(Five) button clicked event handler.
@@ -89,7 +103,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput5_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(5);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 6(Six) button clicked event handler.
@@ -99,7 +115,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput6_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(6);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 7(Seven) button clicked event handler.
@@ -109,7 +127,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput7_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(7);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 8(Eight) button clicked event handler.
@@ -119,7 +139,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput8_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(8);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// 9(Nine) button clicked event handler.
@@ -129,7 +151,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInput9_Click(object sender, EventArgs e)
         {
-
+            api.inputNum(9);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// ←(BackSpace) button clicked event handler.
@@ -139,7 +163,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonBackSpace_Click(object sender, EventArgs e)
         {
-
+            api.inputBackSpace();
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// CE(ClearEdit) button clicked event handler.
@@ -149,7 +175,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonClearEdit_Click(object sender, EventArgs e)
         {
-
+            api.inputClearEdit();
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// C(Clear) button clicked event handler.
@@ -159,7 +187,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonAllClear_Click(object sender, EventArgs e)
         {
-
+            api.inputClearAll();
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// ±(Plus,Minus sign) button clicked event handler.
@@ -169,7 +199,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInputSign_Click(object sender, EventArgs e)
         {
-
+            api.inputReverseSign();
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// /(Division) button clicked event handler.
@@ -178,7 +210,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInputDiv_Click(object sender, EventArgs e)
         {
-
+            api.inputOperator('/');
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// *(Multiplication) button clicked event handler.
@@ -187,7 +221,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInputMul_Click(object sender, EventArgs e)
         {
-
+            api.inputOperator('*');
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// *(Multiplication) button clicked event handler.
@@ -196,16 +232,20 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonInputSub_Click(object sender, EventArgs e)
         {
-
+            api.inputOperator('-');
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
-        /// -(Subtraction) button clicked event handler.
+        /// +(Adding) button clicked event handler.
         /// </summary>
         /// <param name="sender">NotUsed</param>
         /// <param name="e">NotUsed</param>
         private void buttonInputAdd_Click(object sender, EventArgs e)
         {
-
+            api.inputOperator('+');
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// =(Equal) button clicked event handler.
@@ -215,7 +255,9 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonCalc_Click(object sender, EventArgs e)
         {
-
+            api.inputEqual();
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
         /// <summary>
         /// .(Point) button clicked event handler.
@@ -225,7 +267,7 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonPoint_Click(object sender, EventArgs e)
         {
-
+            // Not Supported
         }
     }
 }

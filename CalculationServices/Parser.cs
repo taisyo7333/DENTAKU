@@ -136,6 +136,7 @@ namespace CalculationServices.Parser
     public partial class Parser
     {
         #region FIELDS
+        Alphabets alphabets = new Alphabets();
         #endregion
 
         #region PROPERTY
@@ -351,72 +352,38 @@ namespace CalculationServices.Parser
         /// <summary>
         /// Check if argument's value is number or not.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="input"></param>
         /// <returns>true : number , false : not number</returns>
-        private bool isNumber(char alphabet)
+        private bool isNumber(char input)
         {
-            switch(alphabet)
-            {
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                    return true;
-                default:
-                    return false;
-            }
+            return alphabets.isNumber(input);
         }
         /// <summary>
         /// Check if input character is minus sign or not.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="input"></param>
         /// <returns>true : minus sign , false : not minus sign</returns>
-        private bool isMinusSign(char alphabet)
+        private bool isMinusSign(char input)
         {
-            if (alphabet == '-')
-                return true;
-            else
-                return false;
+            return alphabets.isMinusSign(input);
         }
         /// <summary>
         /// Check if input character is operator's sign.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="input"></param>
         /// <returns></returns>
-        private bool isOperator(char alphabet)
+        private bool isOperator(char input)
         {
-            switch(alphabet)
-            {
-                case '+':
-                case '-':
-                case '*':
-                case '/':
-                    return true;
-                default:
-                    return false;
-            }
+            return alphabets.isOperator(input);
         }
         /// <summary>
         /// Check if input character is parenthesis.
         /// </summary>
         /// <param name="alphabet"></param>
         /// <returns>true:parenthesis , false:not parenthesis</returns>
-        private bool isParenthesis(char alphabet)
+        private bool isParenthesis(char input)
         {
-            switch(alphabet)
-            {
-                case '(':
-                case ')':
-                    return true;
-                default:
-                    return false;
-            }
+            return alphabets.isParenthesis(input);
         }
         /// <summary>
         /// Check if input character is able to accept for parser.
@@ -424,17 +391,9 @@ namespace CalculationServices.Parser
         /// </summary>
         /// <param name="alphabet"></param>
         /// <returns>true :acceptable , false :not acceptable</returns>
-        private bool isAlphabet(char alphabet)
+        private bool isAlphabet(char input)
         {
-            if (isNumber(alphabet))
-                return true;
-            if (isMinusSign(alphabet))
-                return true;
-            if (isOperator(alphabet))
-                return true;
-            if (isParenthesis(alphabet))
-                return true;
-            return false;
+            return alphabets.isAlphabet(input);
         }
 
         /// <summary>
