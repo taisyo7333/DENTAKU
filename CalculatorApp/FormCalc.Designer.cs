@@ -206,6 +206,7 @@
             this.buttonPoint.TabIndex = 14;
             this.buttonPoint.Text = "．";
             this.buttonPoint.UseVisualStyleBackColor = true;
+            this.buttonPoint.Visible = false;
             this.buttonPoint.Click += new System.EventHandler(this.buttonPoint_Click);
             // 
             // buttonInputMul
@@ -253,6 +254,7 @@
             this.textBoxDisplayExpr.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxDisplayExpr.Location = new System.Drawing.Point(3, 4);
             this.textBoxDisplayExpr.Name = "textBoxDisplayExpr";
+            this.textBoxDisplayExpr.ReadOnly = true;
             this.textBoxDisplayExpr.Size = new System.Drawing.Size(288, 27);
             this.textBoxDisplayExpr.TabIndex = 19;
             this.textBoxDisplayExpr.TabStop = false;
@@ -264,8 +266,10 @@
             this.textBoxDispNumber.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxDispNumber.Location = new System.Drawing.Point(3, 34);
             this.textBoxDispNumber.Name = "textBoxDispNumber";
+            this.textBoxDispNumber.ReadOnly = true;
             this.textBoxDispNumber.Size = new System.Drawing.Size(288, 41);
             this.textBoxDispNumber.TabIndex = 20;
+            this.textBoxDispNumber.TabStop = false;
             this.textBoxDispNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panelOutput
