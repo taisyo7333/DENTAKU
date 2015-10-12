@@ -102,22 +102,37 @@ namespace CalculationServices.Parser
         /// 計算途中の値を保持する
         /// </summary>
         private long number = 0;
-
+        /// <summary>
+        /// PROPTERY : 
+        /// </summary>
         public int INDEX
         {
             get { return index; }
             set { this.index = value; }
         }
+        /// <summary>
+        /// PROPTERY : 
+        /// Get innternal message.
+        /// </summary>
         public string MESSAGE
         {
             get { return message; }
         }
+        /// <summary>
+        /// PROPTERY : 
+        /// Get Calculated value.
+        /// </summary>
         public long NUMBER
         {
             get { return number; }
             set { this.number = value; }
         }
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="idx"></param>
+        /// <param name="msg"></param>
         public ParsedData(long num, int idx, string msg)
         {
             this.number = num;
@@ -406,9 +421,6 @@ namespace CalculationServices.Parser
         {
             return statement.Length <= data.INDEX;
         }
-
-
-
         #endregion
     }
 }

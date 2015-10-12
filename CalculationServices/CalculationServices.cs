@@ -8,6 +8,7 @@ namespace CalculationServices
 {
     public class CalcServicesApi
     {
+        #region FIELD
         const string INIT_STATEMENT = "";
         const string INIT_EDIT_NUMBER = "0";
 
@@ -16,7 +17,10 @@ namespace CalculationServices
 
         Parser.Parser parser = new Parser.Parser();
 
-        
+        #endregion
+
+        #region PROPERTY
+
         public string STATEMENT
         {
             get { return statement; }
@@ -25,7 +29,9 @@ namespace CalculationServices
         {
             get { return editNumber; }
         }
-       
+
+        #endregion
+
         /// <summary>
         /// 
         /// </summary>
@@ -46,7 +52,6 @@ namespace CalculationServices
         /// 
         /// </summary>
         /// <param name="op"></param>
-        /// <returns></returns>
         public void inputOperator(char op)
         {
             statement += editNumber;
@@ -58,7 +63,6 @@ namespace CalculationServices
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
         public void inputEqual()
         {
             statement += editNumber;
@@ -70,7 +74,6 @@ namespace CalculationServices
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
         public void inputReverseSign()
         {
             var edit = long.Parse(editNumber);
@@ -78,9 +81,8 @@ namespace CalculationServices
             editNumber = edit.ToString();
         }
         /// <summary>
-        /// 
+        /// Delete last input number.
         /// </summary>
-        /// <returns></returns>
         public void inputBackSpace()
         {
             if( editNumber.Any())
@@ -94,17 +96,15 @@ namespace CalculationServices
             }
         }
         /// <summary>
-        /// 
+        /// Clear edit area.
         /// </summary>
-        /// <returns></returns>
         public void inputClearEdit()
         {
             ClearEditNumber();
         }
         /// <summary>
-        /// 
+        /// Clear edit area and statement area.
         /// </summary>
-        /// <returns></returns>
         public void inputClearAll()
         {
             ClearStatement();

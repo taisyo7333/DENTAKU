@@ -8,6 +8,11 @@ namespace CalculationServices
 {
     public class Alphabets
     {
+        /// <summary>
+        /// Check if input character is able to accept for parser.
+        /// </summary>
+        /// <param name="alphabet"></param>
+        /// <returns>true :acceptable , false :not acceptable</returns>
         public bool isAlphabet(char alphabet)
         {
             if (isNumber(alphabet))
@@ -20,6 +25,11 @@ namespace CalculationServices
                 return true;
             return false;
         }
+        /// <summary>
+        /// Check if input character is operator's sign.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public bool isOperator(char alphabet)
         {
             switch (alphabet)
@@ -33,6 +43,11 @@ namespace CalculationServices
                     return false;
             }
         }
+        /// <summary>
+        /// Check if input character is parenthesis.
+        /// </summary>
+        /// <param name="alphabet"></param>
+        /// <returns>true:parenthesis , false:not parenthesis</returns>
         public bool isParenthesis(char alphabet)
         {
             switch (alphabet)
@@ -44,6 +59,11 @@ namespace CalculationServices
                     return false;
             }
         }
+        /// <summary>
+        /// Check if argument's value is number or not.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>true : number , false : not number</returns>
         public bool isNumber(char alphabet)
         {
             switch (alphabet)
@@ -63,6 +83,11 @@ namespace CalculationServices
                     return false;
             }
         }
+        /// <summary>
+        /// Check if input character is minus sign or not.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>true : minus sign , false : not minus sign</returns>
         public bool isMinusSign(char alphabet)
         {
             if (alphabet == Num.MINUS)
@@ -72,7 +97,9 @@ namespace CalculationServices
 
         }
         
-
+        /// <summary>
+        /// Operator's sign.
+        /// </summary>
         public class Operator
         {
             public const char ADD = '+';    // Adding
@@ -81,8 +108,12 @@ namespace CalculationServices
             public const char DIV = '/';    // Division
 
         }
+        /// <summary>
+        /// Express numbers.
+        /// </summary>
         public class Num
         {
+
             public const char MINUS = '-';
             public const char ZERO = '0';
             public const char ONE = '1';
@@ -95,11 +126,17 @@ namespace CalculationServices
             public const char EIGHT= '8';
             public const char NINE = '9';
         }
+        /// <summary>
+        /// Parenthesis '(' , ')'
+        /// </summary>
         public class Parenthesis
         {
             public const char BEGIN = '(';
             public const char END = ')';
         }
+        /// <summary>
+        /// Express '='
+        /// </summary>
         public const char EQUAL = '=';
 
     }
