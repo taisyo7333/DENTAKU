@@ -24,6 +24,10 @@ namespace CalculatorApp
         public FormCalcApp()
         {
             InitializeComponent();
+
+           this.KeyPreview = true;
+           this.KeyPress +=
+               new KeyPressEventHandler(FormCalcApp_KeyPress);
         }
         /// <summary>
         /// Load this form event hanlder 
@@ -268,6 +272,20 @@ namespace CalculatorApp
         private void buttonPoint_Click(object sender, EventArgs e)
         {
             // Not Supported
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <see cref="https://msdn.microsoft.com/ja-jp/library/ms171538(v=vs.110).aspx"/>
+        private void FormCalcApp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            api.inputAlphabet(e.KeyChar);
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
+
+            e.Handled = true;
         }
     }
 }

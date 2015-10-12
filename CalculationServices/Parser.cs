@@ -232,13 +232,13 @@ namespace CalculationServices.Parser
             while (true)
             {
                 var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == '+')
+                if (alphabet == Alphabets.Operator.ADD)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER + rRight.NUMBER;
                 }
-                else if (alphabet == '-')
+                else if (alphabet == Alphabets.Operator.SUB)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -270,13 +270,13 @@ namespace CalculationServices.Parser
             while (true)
             {
                 var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == '*')
+                if (alphabet == Alphabets.Operator.MUL)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER * rRight.NUMBER;
                 }
-                else if (alphabet == '/')
+                else if (alphabet == Alphabets.Operator.DIV)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -300,7 +300,7 @@ namespace CalculationServices.Parser
         private ParsedData factor(string statement, ParsedData data)
         {
             var alphabet = statement.ElementAt(data.INDEX);
-            if(alphabet == '(')
+            if(alphabet == Alphabets.Parenthesis.BEGIN )
             {
                 data.INDEX++;
 
@@ -314,7 +314,7 @@ namespace CalculationServices.Parser
                 {
                     throw new SyntaxException(")の対応が合わず、終端に到達しました。",data.INDEX);
                 }
-                if(statement.ElementAt(rExpr.INDEX) != ')')
+                if (statement.ElementAt(rExpr.INDEX) != Alphabets.Parenthesis.END)
                 {
                     throw new SyntaxException(")が合わない",data.INDEX);
                 }
@@ -331,7 +331,7 @@ namespace CalculationServices.Parser
                     data.INDEX = data.INDEX + 1;
                     alphabet = statement.ElementAt(data.INDEX);
 
-                    strNumber = "-";
+                    strNumber = Alphabets.Num.MINUS.ToString();
                 }
 
                 // 数字が一文字以上連続している場合は、数字として認識する。

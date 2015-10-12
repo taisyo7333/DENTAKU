@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Windows.Forms; // Keys
 namespace CalculationServices
 {
     public class Alphabets
@@ -28,7 +29,7 @@ namespace CalculationServices
         /// <summary>
         /// Check if input character is operator's sign.
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="alphabet"></param>
         /// <returns></returns>
         public bool isOperator(char alphabet)
         {
@@ -62,7 +63,7 @@ namespace CalculationServices
         /// <summary>
         /// Check if argument's value is number or not.
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="alphabet"></param>
         /// <returns>true : number , false : not number</returns>
         public bool isNumber(char alphabet)
         {
@@ -86,7 +87,7 @@ namespace CalculationServices
         /// <summary>
         /// Check if input character is minus sign or not.
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="alphabet"></param>
         /// <returns>true : minus sign , false : not minus sign</returns>
         public bool isMinusSign(char alphabet)
         {
@@ -95,6 +96,31 @@ namespace CalculationServices
             else
                 return false;
 
+        }
+        /// <summary>
+        /// Check if input character is equal sign or not.
+        /// </summary>
+        /// <param name="alphabet"></param>
+        /// <returns></returns>
+        public bool isEqual(char alphabet)
+        {
+            if (alphabet == EQUAL)
+                return true;
+            else
+                return false;
+        }
+        /// <summary>
+        /// Check if input character is 'backspace' key or not.
+        /// </summary>
+        /// <param name="alphabet"></param>
+        /// <returns></returns>
+        /// <remarks>backspace key is not alphabet.</remarks>
+        public bool isBackSpace(char alphabet)
+        {
+            if (alphabet == (char)Keys.Back)
+                return true;
+            else
+                return false;
         }
         
         /// <summary>

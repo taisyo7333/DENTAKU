@@ -16,7 +16,7 @@ namespace CalculationServices
         string editNumber = INIT_EDIT_NUMBER;
 
         Parser.Parser parser = new Parser.Parser();
-
+        Alphabets alphabets = new Alphabets();
         #endregion
 
         #region PROPERTY
@@ -85,14 +85,17 @@ namespace CalculationServices
         /// </summary>
         public void inputBackSpace()
         {
-            if( editNumber.Any())
+            if(!editNumber.Equals(INIT_EDIT_NUMBER))
             {
-                // delete last alphabet
-                editNumber.Remove(editNumber.Length - 1);
-            }
-            if (!editNumber.Any())
-            {
-                ClearEditNumber();
+                if (editNumber.Length == 1)
+                {
+                    ClearEditNumber();
+                }
+                else
+                {
+                    // Delete last character
+                    editNumber = editNumber.Remove(editNumber.Length - 1);
+                }
             }
         }
         /// <summary>
@@ -110,6 +113,51 @@ namespace CalculationServices
             ClearStatement();
             ClearEditNumber();
         }
+        /// <summary>
+        /// Check if input value is alphabet for parser  or not.
+        /// </summary>
+        /// <param name="input">input value</param>
+        /// <returns>true : input value is alphabet , false : input value is not alphabet.</returns>
+        public bool isAlphabet(char input)
+        {
+            return alphabets.isAlphabet(input);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        public void inputAlphabet(char input)
+        {
+            
+            if(alphabets.isOperator(input))
+            {
+                this.inputOperator(input);
+            }
+            else if(alphabets.isNumber(input))
+            {
+                this.inputNum(input);
+            }
+            else if(alphabets.isEqual(input))
+            {
+                this.inputEqual();
+            }
+            else if (alphabets.isMinusSign(input))
+            {
+                // Not supported.
+            }
+            else if (alphabets.isParenthesis(input))
+            {
+                // Not supported.
+            }
+            else if(alphabets.isBackSpace(input))
+            {
+                this.inputBackSpace();
+            }
+            
+            
+
+        }
+
         /// <summary>
         /// Clear statement area's string.
         /// </summary>
