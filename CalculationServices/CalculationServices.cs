@@ -32,12 +32,14 @@ namespace CalculationServices
 
         #endregion
 
+        #region METHODS
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="num"></param>
+        /// <param name="num">'0'-'9'</param>
         /// <returns></returns>
-        public void inputNum(int num)
+        public void inputNum(char num)
         {
             if(editNumber.Equals(INIT_EDIT_NUMBER))
             {
@@ -172,6 +174,6 @@ namespace CalculationServices
         {
             editNumber = INIT_EDIT_NUMBER;
         }
-
+        #endregion
     }
 }
