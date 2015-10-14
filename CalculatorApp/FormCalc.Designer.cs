@@ -278,7 +278,7 @@
             this.panelOutput.Controls.Add(this.textBoxDispNumber);
             this.panelOutput.Location = new System.Drawing.Point(3, 3);
             this.panelOutput.Name = "panelOutput";
-            this.panelOutput.Size = new System.Drawing.Size(294, 81);
+            this.panelOutput.Size = new System.Drawing.Size(294, 80);
             this.panelOutput.TabIndex = 21;
             // 
             // tableLayoutPanel
@@ -317,7 +317,7 @@
             this.panelInputButtons.Controls.Add(this.buttonInput1);
             this.panelInputButtons.Controls.Add(this.buttonInput5);
             this.panelInputButtons.Controls.Add(this.buttonInput6);
-            this.panelInputButtons.Location = new System.Drawing.Point(3, 90);
+            this.panelInputButtons.Location = new System.Drawing.Point(3, 89);
             this.panelInputButtons.Name = "panelInputButtons";
             this.panelInputButtons.Size = new System.Drawing.Size(297, 220);
             this.panelInputButtons.TabIndex = 22;
@@ -345,6 +345,7 @@
             this.Name = "FormCalcApp";
             this.Text = "Calculator App";
             this.Load += new System.EventHandler(this.FormCalcApp_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCalcApp_KeyDown);
             this.panelOutput.ResumeLayout(false);
             this.panelOutput.PerformLayout();
             this.tableLayoutPanel.ResumeLayout(false);

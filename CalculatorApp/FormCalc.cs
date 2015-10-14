@@ -274,18 +274,47 @@ namespace CalculatorApp
             // Not Supported
         }
         /// <summary>
-        /// 
+        /// KeyPress Event Handler
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender">NotUsed</param>
         /// <param name="e"></param>
         /// <see cref="https://msdn.microsoft.com/ja-jp/library/ms171538(v=vs.110).aspx"/>
+        /// <remarks>Delete key pressing will not call this method.</remarks>
         private void FormCalcApp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            api.inputAlphabet(e.KeyChar);
+            switch(e.KeyChar)
+            {
+                case (char)Keys.Escape: // ESC key
+                    api.inputClearAll();
+                    break;
+                case (char)Keys.Back:
+                    api.inputBackSpace();   // Backspace
+                    break;
+                default:
+                    api.inputAlphabet(e.KeyChar);
+                    break;
+            }
+          
             textBoxDispNumber.Text = api.EDIT;
             textBoxDisplayExpr.Text = api.STATEMENT;
 
             e.Handled = true;
+        }
+        /// <summary>
+        /// KeyDown Event Handler
+        /// </summary>
+        /// <param name="sender">NotUsed</param>
+        /// <param name="e"></param>
+        private void FormCalcApp_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Delete: // DELETE key
+                    api.inputClearEdit();
+                    break;
+            }
+            textBoxDispNumber.Text = api.EDIT;
+            textBoxDisplayExpr.Text = api.STATEMENT;
         }
     }
 }

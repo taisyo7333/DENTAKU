@@ -130,7 +130,6 @@ namespace CalculationServices
         /// <param name="input"></param>
         public void inputAlphabet(char input)
         {
-            
             if(alphabets.isOperator(input))
             {
                 this.inputOperator(input);
@@ -151,13 +150,6 @@ namespace CalculationServices
             {
                 // Not supported.
             }
-            else if(alphabets.isBackSpace(input))
-            {
-                this.inputBackSpace();
-            }
-            
-            
-
         }
 
         /// <summary>
