@@ -259,9 +259,11 @@ namespace CalculatorApp
         /// <param name="e">NotUsed</param>
         private void buttonCalc_Click(object sender, EventArgs e)
         {
-            api.inputEqual();
+            var msg = api.inputEqual();
             textBoxDispNumber.Text = api.EDIT;
             textBoxDisplayExpr.Text = api.STATEMENT;
+
+            ShowMessageBox(msg);
         }
         /// <summary>
         /// .(Point) button clicked event handler.
@@ -282,6 +284,7 @@ namespace CalculatorApp
         /// <remarks>Delete key pressing will not call this method.</remarks>
         private void FormCalcApp_KeyPress(object sender, KeyPressEventArgs e)
         {
+            string msg = null;
             switch(e.KeyChar)
             {
                 case (char)Keys.Escape: // ESC key
@@ -290,6 +293,9 @@ namespace CalculatorApp
                 case (char)Keys.Back:
                     api.inputBackSpace();   // Backspace
                     break;
+                case '=':
+                    msg = api.inputEqual();
+                    break;
                 default:
                     api.inputAlphabet(e.KeyChar);
                     break;
@@ -297,6 +303,8 @@ namespace CalculatorApp
           
             textBoxDispNumber.Text = api.EDIT;
             textBoxDisplayExpr.Text = api.STATEMENT;
+
+            ShowMessageBox(msg);
 
             e.Handled = true;
         }
@@ -315,6 +323,17 @@ namespace CalculatorApp
             }
             textBoxDispNumber.Text = api.EDIT;
             textBoxDisplayExpr.Text = api.STATEMENT;
+        }
+        /// <summary>
+        /// Show MessageBox When error occurs.
+        /// </summary>
+        /// <param name="msg">message that is expected to show.</param>
+        private void ShowMessageBox(string msg)
+        {
+            if (msg != null)
+            {
+                MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

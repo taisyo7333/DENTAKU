@@ -65,13 +65,18 @@ namespace CalculationServices
         /// <summary>
         /// 
         /// </summary>
-        public void inputEqual()
+        public string inputEqual()
         {
             statement += editNumber;
 
             var r = parser.parse(statement);
             editNumber = r.Result.ToString();
             ClearStatement();
+
+            if (r.Message.Any())
+                return r.Message;
+            else
+                return null;
         }
         /// <summary>
         /// 
@@ -137,10 +142,6 @@ namespace CalculationServices
             else if(alphabets.isNumber(input))
             {
                 this.inputNum(input);
-            }
-            else if(alphabets.isEqual(input))
-            {
-                this.inputEqual();
             }
             else if (alphabets.isMinusSign(input))
             {
