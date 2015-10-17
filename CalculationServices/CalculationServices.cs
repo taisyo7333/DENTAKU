@@ -35,7 +35,7 @@ namespace CalculationServices
         #region METHODS
 
         /// <summary>
-        /// 
+        /// behaviour when input numeric character.
         /// </summary>
         /// <param name="num">'0'-'9'</param>
         /// <returns></returns>
@@ -51,7 +51,7 @@ namespace CalculationServices
             }
         }
         /// <summary>
-        /// 
+        /// behaviour when input operation character
         /// </summary>
         /// <param name="op"></param>
         public void inputOperator(char op)
@@ -63,7 +63,7 @@ namespace CalculationServices
 
         }
         /// <summary>
-        /// 
+        /// behaviour when input '=' . 
         /// </summary>
         public string inputEqual()
         {
