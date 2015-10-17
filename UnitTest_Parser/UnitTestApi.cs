@@ -71,6 +71,22 @@ namespace UnitTest_Parser
             api.inputNum('5');
             Assert.IsTrue(api.STATEMENT.Equals(""));
             Assert.IsTrue(api.EDIT.Equals("12345"));
+
+            api.inputNum('6');
+            Assert.IsTrue(api.STATEMENT.Equals(""));
+            Assert.IsTrue(api.EDIT.Equals("123456"));
+
+            api.inputNum('7');
+            Assert.IsTrue(api.STATEMENT.Equals(""));
+            Assert.IsTrue(api.EDIT.Equals("1234567"));
+
+            api.inputNum('8');
+            Assert.IsTrue(api.STATEMENT.Equals(""));
+            Assert.IsTrue(api.EDIT.Equals("12345678"));
+
+            api.inputNum('9');
+            Assert.IsTrue(api.STATEMENT.Equals(""));
+            Assert.IsTrue(api.EDIT.Equals("123456789"));
         }
         [TestMethod]
         public void TestMethod_InputOperator()
@@ -89,6 +105,16 @@ namespace UnitTest_Parser
             api.inputOperator('*');
             Assert.IsTrue(api.STATEMENT.Equals("0+1*"));
             Assert.IsTrue(api.EDIT.Equals("0"));
+
+            api.inputNum('9');
+            api.inputOperator('-');
+            Assert.IsTrue(api.STATEMENT.Equals("0+1*9-"));
+            Assert.IsTrue(api.EDIT.Equals("0"));
+
+            api.inputNum('5');
+            api.inputOperator('/');
+            Assert.IsTrue(api.STATEMENT.Equals("0+1*9-5/"));
+            Assert.IsTrue(api.EDIT.Equals("0"));
         }
         [TestMethod]
         public void TestMethod_inputReverseSign()
@@ -103,6 +129,12 @@ namespace UnitTest_Parser
 
             Assert.IsTrue(api.STATEMENT.Equals(""));
             Assert.IsTrue(api.EDIT.Equals("-120"));
+
+            api.inputReverseSign();
+
+            Assert.IsTrue(api.STATEMENT.Equals(""));
+            Assert.IsTrue(api.EDIT.Equals("120"));
+
         }
         [TestMethod]
         public void TestMethod_inputBackSpace()
@@ -129,6 +161,10 @@ namespace UnitTest_Parser
             Assert.IsTrue(api.STATEMENT.Equals(""));
             Assert.IsTrue(api.EDIT.Equals("0"));
 
+            api.inputBackSpace();
+            Assert.IsTrue(api.STATEMENT.Equals(""));
+            Assert.IsTrue(api.EDIT.Equals("0"));
+
         }
         [TestMethod]
         public void TestMethod_inputClearEdit()
@@ -143,6 +179,10 @@ namespace UnitTest_Parser
 
             Assert.IsTrue(api.STATEMENT.Equals("120+"));
             Assert.IsTrue(api.EDIT.Equals("0"));
+
+            api.inputClearEdit();
+            Assert.IsTrue(api.STATEMENT.Equals("120+"));
+            Assert.IsTrue(api.EDIT.Equals("0"));
         }
         [TestMethod]
         public void TestMethod_inputClearAll()
@@ -155,6 +195,10 @@ namespace UnitTest_Parser
 
             api.inputClearAll();
 
+            Assert.IsTrue(api.STATEMENT.Equals(""));
+            Assert.IsTrue(api.EDIT.Equals("0"));
+
+            api.inputClearAll();
             Assert.IsTrue(api.STATEMENT.Equals(""));
             Assert.IsTrue(api.EDIT.Equals("0"));
         }
