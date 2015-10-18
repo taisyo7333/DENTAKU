@@ -3,3 +3,4 @@ CalculatorApp/bin/
 CalculationServices/obj/
 UnitTest_Parser/obj/
 *.TMP
+CalculatorApp/publish/
