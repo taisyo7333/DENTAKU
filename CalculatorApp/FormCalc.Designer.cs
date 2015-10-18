@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCalcApp));
             this.buttonBackSpace = new System.Windows.Forms.Button();
             this.buttonClearEdit = new System.Windows.Forms.Button();
             this.buttonAllClear = new System.Windows.Forms.Button();
@@ -206,6 +207,7 @@
             this.buttonPoint.TabIndex = 14;
             this.buttonPoint.Text = "．";
             this.buttonPoint.UseVisualStyleBackColor = true;
+            this.buttonPoint.Visible = false;
             this.buttonPoint.Click += new System.EventHandler(this.buttonPoint_Click);
             // 
             // buttonInputMul
@@ -250,9 +252,11 @@
             // 
             // textBoxDisplayExpr
             // 
+            this.textBoxDisplayExpr.Enabled = false;
             this.textBoxDisplayExpr.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxDisplayExpr.Location = new System.Drawing.Point(3, 4);
             this.textBoxDisplayExpr.Name = "textBoxDisplayExpr";
+            this.textBoxDisplayExpr.ReadOnly = true;
             this.textBoxDisplayExpr.Size = new System.Drawing.Size(288, 27);
             this.textBoxDisplayExpr.TabIndex = 19;
             this.textBoxDisplayExpr.TabStop = false;
@@ -261,11 +265,14 @@
             // 
             // textBoxDispNumber
             // 
+            this.textBoxDispNumber.Enabled = false;
             this.textBoxDispNumber.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxDispNumber.Location = new System.Drawing.Point(3, 34);
             this.textBoxDispNumber.Name = "textBoxDispNumber";
+            this.textBoxDispNumber.ReadOnly = true;
             this.textBoxDispNumber.Size = new System.Drawing.Size(288, 41);
             this.textBoxDispNumber.TabIndex = 20;
+            this.textBoxDispNumber.TabStop = false;
             this.textBoxDispNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panelOutput
@@ -274,7 +281,7 @@
             this.panelOutput.Controls.Add(this.textBoxDispNumber);
             this.panelOutput.Location = new System.Drawing.Point(3, 3);
             this.panelOutput.Name = "panelOutput";
-            this.panelOutput.Size = new System.Drawing.Size(294, 81);
+            this.panelOutput.Size = new System.Drawing.Size(294, 80);
             this.panelOutput.TabIndex = 21;
             // 
             // tableLayoutPanel
@@ -313,7 +320,7 @@
             this.panelInputButtons.Controls.Add(this.buttonInput1);
             this.panelInputButtons.Controls.Add(this.buttonInput5);
             this.panelInputButtons.Controls.Add(this.buttonInput6);
-            this.panelInputButtons.Location = new System.Drawing.Point(3, 90);
+            this.panelInputButtons.Location = new System.Drawing.Point(3, 89);
             this.panelInputButtons.Name = "panelInputButtons";
             this.panelInputButtons.Size = new System.Drawing.Size(297, 220);
             this.panelInputButtons.TabIndex = 22;
@@ -335,12 +342,14 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(325, 344);
             this.Controls.Add(this.tableLayoutPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(343, 391);
             this.MinimumSize = new System.Drawing.Size(343, 391);
             this.Name = "FormCalcApp";
-            this.Text = "Calculator App";
+            this.Text = "DENTAKU.";
             this.Load += new System.EventHandler(this.FormCalcApp_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCalcApp_KeyDown);
             this.panelOutput.ResumeLayout(false);
             this.panelOutput.PerformLayout();
             this.tableLayoutPanel.ResumeLayout(false);

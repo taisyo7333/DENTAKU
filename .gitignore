@@ -1,2 +1,5 @@
 CalculatorApp/obj/
 CalculatorApp/bin/
+CalculationServices/obj/
+UnitTest_Parser/obj/
+*.TMP
