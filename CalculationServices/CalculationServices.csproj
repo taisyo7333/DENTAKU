@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alphabet.cs" />
+    <Compile Include="Token.cs" />
     <Compile Include="CalculationServices.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="Parser.cs" />
