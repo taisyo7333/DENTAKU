@@ -121,10 +121,10 @@ namespace CalculationServices
             ClearEditNumber();
         }
         /// <summary>
-        /// Check if input value is alphabet for parser  or not.
+        /// Check if input value is token for parser  or not.
         /// </summary>
         /// <param name="input">input value</param>
-        /// <returns>true : input value is alphabet , false : input value is not alphabet.</returns>
+        /// <returns>true : input value is token , false : input value is not token.</returns>
         public bool isAlphabet(char input)
         {
             return token.isToken(input);

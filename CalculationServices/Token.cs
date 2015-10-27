@@ -12,28 +12,28 @@ namespace CalculationServices
         /// <summary>
         /// Check if input character is able to accept for parser.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns>true :acceptable , false :not acceptable</returns>
-        public bool isToken(char alphabet)
+        public bool isToken(char token)
         {
-            if (isNumber(alphabet))
+            if (isNumber(token))
                 return true;
-            if (isMinusSign(alphabet))
+            if (isMinusSign(token))
                 return true;
-            if (isOperator(alphabet))
+            if (isOperator(token))
                 return true;
-            if (isParenthesis(alphabet))
+            if (isParenthesis(token))
                 return true;
             return false;
         }
         /// <summary>
         /// Check if input character is operator's sign.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns></returns>
-        public bool isOperator(char alphabet)
+        public bool isOperator(char token)
         {
-            switch (alphabet)
+            switch (token)
             {
                 case Operator.ADD:
                 case Operator.SUB:
@@ -47,11 +47,11 @@ namespace CalculationServices
         /// <summary>
         /// Check if input character is parenthesis.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns>true:parenthesis , false:not parenthesis</returns>
-        public bool isParenthesis(char alphabet)
+        public bool isParenthesis(char token)
         {
-            switch (alphabet)
+            switch (token)
             {
                 case Parenthesis.BEGIN:
                 case Parenthesis.END:
@@ -63,11 +63,11 @@ namespace CalculationServices
         /// <summary>
         /// Check if argument's value is number or not.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns>true : number , false : not number</returns>
-        public bool isNumber(char alphabet)
+        public bool isNumber(char token)
         {
-            switch (alphabet)
+            switch (token)
             {
                 case '0':
                 case '1':
@@ -87,11 +87,11 @@ namespace CalculationServices
         /// <summary>
         /// Check if input character is minus sign or not.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns>true : minus sign , false : not minus sign</returns>
-        public bool isMinusSign(char alphabet)
+        public bool isMinusSign(char token)
         {
-            if (alphabet == Num.MINUS)
+            if (token == Num.MINUS)
                 return true;
             else
                 return false;
@@ -100,11 +100,11 @@ namespace CalculationServices
         /// <summary>
         /// Check if input character is equal sign or not.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns></returns>
-        public bool isEqual(char alphabet)
+        public bool isEqual(char token)
         {
-            if (alphabet == EQUAL)
+            if (token == EQUAL)
                 return true;
             else
                 return false;
@@ -112,12 +112,12 @@ namespace CalculationServices
         /// <summary>
         /// Check if input character is 'backspace' key or not.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns></returns>
-        /// <remarks>backspace key is not alphabet.</remarks>
-        public bool isBackSpace(char alphabet)
+        /// <remarks>backspace key is not token.</remarks>
+        public bool isBackSpace(char token)
         {
-            if (alphabet == (char)Keys.Back)
+            if (token == (char)Keys.Back)
                 return true;
             else
                 return false;

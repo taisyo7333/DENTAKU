@@ -394,7 +394,7 @@ namespace CalculationServices.Parser
         /// <summary>
         /// Check if input character is parenthesis.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns>true:parenthesis , false:not parenthesis</returns>
         private bool isParenthesis(char input)
         {
