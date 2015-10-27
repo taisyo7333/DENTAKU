@@ -6,7 +6,7 @@ using System.Windows.Forms; // key
 namespace UnitTest_Parser
 {
     [TestClass]
-    public class UnitTestAlphabet
+    public class UnitTestToken
     {
         [TestMethod]
         public void TestMethod_isOperator()
