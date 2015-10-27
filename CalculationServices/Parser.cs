@@ -151,7 +151,7 @@ namespace CalculationServices.Parser
     public partial class Parser
     {
         #region FIELDS
-        Alphabets alphabets = new Alphabets();
+        Token alphabets = new Token();
         #endregion
 
         #region PROPERTY
@@ -232,13 +232,13 @@ namespace CalculationServices.Parser
             while (true)
             {
                 var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == Alphabets.Operator.ADD)
+                if (alphabet == Token.Operator.ADD)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER + rRight.NUMBER;
                 }
-                else if (alphabet == Alphabets.Operator.SUB)
+                else if (alphabet == Token.Operator.SUB)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -270,13 +270,13 @@ namespace CalculationServices.Parser
             while (true)
             {
                 var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == Alphabets.Operator.MUL)
+                if (alphabet == Token.Operator.MUL)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER * rRight.NUMBER;
                 }
-                else if (alphabet == Alphabets.Operator.DIV)
+                else if (alphabet == Token.Operator.DIV)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -300,7 +300,7 @@ namespace CalculationServices.Parser
         private ParsedData factor(string statement, ParsedData data)
         {
             var alphabet = statement.ElementAt(data.INDEX);
-            if(alphabet == Alphabets.Parenthesis.BEGIN )
+            if(alphabet == Token.Parenthesis.BEGIN )
             {
                 data.INDEX++;
 
@@ -314,7 +314,7 @@ namespace CalculationServices.Parser
                 {
                     throw new SyntaxException(")の対応が合わず、終端に到達しました。",data.INDEX);
                 }
-                if (statement.ElementAt(rExpr.INDEX) != Alphabets.Parenthesis.END)
+                if (statement.ElementAt(rExpr.INDEX) != Token.Parenthesis.END)
                 {
                     throw new SyntaxException(")が合わない",data.INDEX);
                 }
@@ -331,7 +331,7 @@ namespace CalculationServices.Parser
                     data.INDEX = data.INDEX + 1;
                     alphabet = statement.ElementAt(data.INDEX);
 
-                    strNumber = Alphabets.Num.MINUS.ToString();
+                    strNumber = Token.Num.MINUS.ToString();
                 }
 
                 // 数字が一文字以上連続している場合は、数字として認識する。

@@ -16,7 +16,7 @@ namespace CalculationServices
         string editNumber = INIT_EDIT_NUMBER;
 
         Parser.Parser parser = new Parser.Parser();
-        Alphabets alphabets = new Alphabets();
+        Token alphabets = new Token();
         #endregion
 
         #region PROPERTY

@@ -11,7 +11,7 @@ namespace UnitTest_Parser
         [TestMethod]
         public void TestMethod_isOperator()
         {
-            Alphabets a = new Alphabets();
+            Token a = new Token();
             Assert.AreEqual(true, a.isOperator('+'));
             Assert.AreEqual(true, a.isOperator('-'));
             Assert.AreEqual(true, a.isOperator('*'));
@@ -20,14 +20,14 @@ namespace UnitTest_Parser
         [TestMethod]
         public void TestMethod_isParenthesis()
         {
-            Alphabets a = new Alphabets();
+            Token a = new Token();
             Assert.AreEqual(true, a.isParenthesis('('));
             Assert.AreEqual(true, a.isParenthesis(')'));
         }
         [TestMethod]
         public void TestMethod_isNumber()
         {
-            Alphabets a = new Alphabets();
+            Token a = new Token();
             Assert.AreEqual(true, a.isNumber('0'));
             Assert.AreEqual(true, a.isNumber('1'));
             Assert.AreEqual(true, a.isNumber('2'));
@@ -48,26 +48,26 @@ namespace UnitTest_Parser
         [TestMethod]
         public void TestMethod_isMinusSign()
         {
-            Alphabets a = new Alphabets();
+            Token a = new Token();
             Assert.AreEqual(true, a.isMinusSign('-'));
             Assert.AreEqual(false, a.isMinusSign('+'));
         }
         [TestMethod]
         public void TestMethod_isEqual()
         {
-            Alphabets a = new Alphabets();
+            Token a = new Token();
             Assert.AreEqual(true, a.isEqual('='));
         }
         [TestMethod]
         public void TestMethod_isBackSpace()
         {
-            Alphabets a = new Alphabets();
+            Token a = new Token();
             Assert.AreEqual(true, a.isBackSpace((char)Keys.Back));
         }
         [TestMethod]
         public void TestMethod_isAlphabet()
         {
-            Alphabets a = new Alphabets();
+            Token a = new Token();
             char[] alphabet = new char[]{
                 '0','1','2','3','4','5','6','7','8','9',
                 '+','-','*','/',

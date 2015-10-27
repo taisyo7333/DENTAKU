@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms; // Keys
 namespace CalculationServices
 {
-    public class Alphabets
+    public class Token
     {
         /// <summary>
         /// Check if input character is able to accept for parser.
