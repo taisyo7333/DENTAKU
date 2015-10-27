@@ -14,7 +14,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="alphabet"></param>
         /// <returns>true :acceptable , false :not acceptable</returns>
-        public bool isAlphabet(char alphabet)
+        public bool isToken(char alphabet)
         {
             if (isNumber(alphabet))
                 return true;

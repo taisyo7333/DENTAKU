@@ -408,7 +408,7 @@ namespace CalculationServices.Parser
         /// <returns>true :acceptable , false :not acceptable</returns>
         private bool isAlphabet(char input)
         {
-            return alphabets.isAlphabet(input);
+            return alphabets.isToken(input);
         }
 
         /// <summary>

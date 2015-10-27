@@ -127,7 +127,7 @@ namespace CalculationServices
         /// <returns>true : input value is alphabet , false : input value is not alphabet.</returns>
         public bool isAlphabet(char input)
         {
-            return alphabets.isAlphabet(input);
+            return alphabets.isToken(input);
         }
         /// <summary>
         /// 

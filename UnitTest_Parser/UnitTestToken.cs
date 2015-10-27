@@ -75,9 +75,9 @@ namespace UnitTest_Parser
             };
             foreach(var v in alphabet)
             {
-                Assert.AreEqual(true,a.isAlphabet(v));
+                Assert.AreEqual(true,a.isToken(v));
             }
-            Assert.AreEqual(false, a.isAlphabet('='));
+            Assert.AreEqual(false, a.isToken('='));
         }
 
     }
