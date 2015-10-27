@@ -16,7 +16,7 @@ namespace CalculationServices
         string editNumber = INIT_EDIT_NUMBER;
 
         Parser.Parser parser = new Parser.Parser();
-        Token alphabets = new Token();
+        Token token = new Token();
         #endregion
 
         #region PROPERTY
@@ -127,7 +127,7 @@ namespace CalculationServices
         /// <returns>true : input value is alphabet , false : input value is not alphabet.</returns>
         public bool isAlphabet(char input)
         {
-            return alphabets.isToken(input);
+            return token.isToken(input);
         }
         /// <summary>
         /// 
@@ -135,19 +135,19 @@ namespace CalculationServices
         /// <param name="input"></param>
         public void inputAlphabet(char input)
         {
-            if(alphabets.isOperator(input))
+            if(token.isOperator(input))
             {
                 this.inputOperator(input);
             }
-            else if(alphabets.isNumber(input))
+            else if(token.isNumber(input))
             {
                 this.inputNum(input);
             }
-            else if (alphabets.isMinusSign(input))
+            else if (token.isMinusSign(input))
             {
                 // Not supported.
             }
-            else if (alphabets.isParenthesis(input))
+            else if (token.isParenthesis(input))
             {
                 // Not supported.
             }

@@ -151,7 +151,7 @@ namespace CalculationServices.Parser
     public partial class Parser
     {
         #region FIELDS
-        Token alphabets = new Token();
+        Token token = new Token();
         #endregion
 
         #region PROPERTY
@@ -371,7 +371,7 @@ namespace CalculationServices.Parser
         /// <returns>true : number , false : not number</returns>
         private bool isNumber(char input)
         {
-            return alphabets.isNumber(input);
+            return token.isNumber(input);
         }
         /// <summary>
         /// Check if input character is minus sign or not.
@@ -380,7 +380,7 @@ namespace CalculationServices.Parser
         /// <returns>true : minus sign , false : not minus sign</returns>
         private bool isMinusSign(char input)
         {
-            return alphabets.isMinusSign(input);
+            return token.isMinusSign(input);
         }
         /// <summary>
         /// Check if input character is operator's sign.
@@ -389,7 +389,7 @@ namespace CalculationServices.Parser
         /// <returns></returns>
         private bool isOperator(char input)
         {
-            return alphabets.isOperator(input);
+            return token.isOperator(input);
         }
         /// <summary>
         /// Check if input character is parenthesis.
@@ -398,7 +398,7 @@ namespace CalculationServices.Parser
         /// <returns>true:parenthesis , false:not parenthesis</returns>
         private bool isParenthesis(char input)
         {
-            return alphabets.isParenthesis(input);
+            return token.isParenthesis(input);
         }
         /// <summary>
         /// Check if input character is able to accept for parser.
@@ -408,7 +408,7 @@ namespace CalculationServices.Parser
         /// <returns>true :acceptable , false :not acceptable</returns>
         private bool isAlphabet(char input)
         {
-            return alphabets.isToken(input);
+            return token.isToken(input);
         }
 
         /// <summary>
