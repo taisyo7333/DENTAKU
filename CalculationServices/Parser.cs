@@ -231,14 +231,14 @@ namespace CalculationServices.Parser
 
             while (true)
             {
-                var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == Token.Operator.ADD)
+                var tokenCurrent = statement.ElementAt(rLeft.INDEX);
+                if (tokenCurrent == Token.Operator.ADD)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER + rRight.NUMBER;
                 }
-                else if (alphabet == Token.Operator.SUB)
+                else if (tokenCurrent == Token.Operator.SUB)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -404,7 +404,7 @@ namespace CalculationServices.Parser
         /// Check if input character is able to accept for parser.
         /// 入力文字が解析器が受付可能な文字かチェックする
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="input"></param>
         /// <returns>true :acceptable , false :not acceptable</returns>
         private bool isToken(char input)
         {
