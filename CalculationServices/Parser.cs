@@ -406,7 +406,7 @@ namespace CalculationServices.Parser
         /// </summary>
         /// <param name="alphabet"></param>
         /// <returns>true :acceptable , false :not acceptable</returns>
-        private bool isAlphabet(char input)
+        private bool isToken(char input)
         {
             return token.isToken(input);
         }
