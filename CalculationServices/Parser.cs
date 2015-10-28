@@ -151,7 +151,6 @@ namespace CalculationServices.Parser
     public partial class Parser
     {
         #region FIELDS
-        Token token = new Token();
         #endregion
 
         #region PROPERTY
@@ -371,7 +370,7 @@ namespace CalculationServices.Parser
         /// <returns>true : number , false : not number</returns>
         private bool isNumber(char input)
         {
-            return token.isNumber(input);
+            return Token.isNumber(input);
         }
         /// <summary>
         /// Check if input character is minus sign or not.
@@ -380,7 +379,7 @@ namespace CalculationServices.Parser
         /// <returns>true : minus sign , false : not minus sign</returns>
         private bool isMinusSign(char input)
         {
-            return token.isMinusSign(input);
+            return Token.isMinusSign(input);
         }
         /// <summary>
         /// Check if input character is operator's sign.
@@ -389,7 +388,7 @@ namespace CalculationServices.Parser
         /// <returns></returns>
         private bool isOperator(char input)
         {
-            return token.isOperator(input);
+            return Token.isOperator(input);
         }
         /// <summary>
         /// Check if input character is parenthesis.
@@ -398,7 +397,7 @@ namespace CalculationServices.Parser
         /// <returns>true:parenthesis , false:not parenthesis</returns>
         private bool isParenthesis(char input)
         {
-            return token.isParenthesis(input);
+            return Token.isParenthesis(input);
         }
         /// <summary>
         /// Check if input character is able to accept for parser.
@@ -408,7 +407,7 @@ namespace CalculationServices.Parser
         /// <returns>true :acceptable , false :not acceptable</returns>
         private bool isToken(char input)
         {
-            return token.isToken(input);
+            return Token.isToken(input);
         }
 
         /// <summary>

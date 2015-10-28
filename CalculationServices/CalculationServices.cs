@@ -16,7 +16,6 @@ namespace CalculationServices
         string editNumber = INIT_EDIT_NUMBER;
 
         Parser.Parser parser = new Parser.Parser();
-        Token token = new Token();
         #endregion
 
         #region PROPERTY
@@ -127,7 +126,7 @@ namespace CalculationServices
         /// <returns>true : input value is token , false : input value is not token.</returns>
         public bool isToken(char input)
         {
-            return token.isToken(input);
+            return Token.isToken(input);
         }
         /// <summary>
         /// 
@@ -135,19 +134,19 @@ namespace CalculationServices
         /// <param name="input"></param>
         public void inputCharacter(char input)
         {
-            if(token.isOperator(input))
+            if (Token.isOperator(input))
             {
                 this.inputOperator(input);
             }
-            else if(token.isNumber(input))
+            else if (Token.isNumber(input))
             {
                 this.inputNum(input);
             }
-            else if (token.isMinusSign(input))
+            else if (Token.isMinusSign(input))
             {
                 // Not supported.
             }
-            else if (token.isParenthesis(input))
+            else if (Token.isParenthesis(input))
             {
                 // Not supported.
             }

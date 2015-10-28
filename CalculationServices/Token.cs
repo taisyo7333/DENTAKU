@@ -14,7 +14,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="token"></param>
         /// <returns>true :acceptable , false :not acceptable</returns>
-        public bool isToken(char token)
+        public static bool isToken(char token)
         {
             if (isNumber(token))
                 return true;
@@ -31,7 +31,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        public bool isOperator(char token)
+        public static bool isOperator(char token)
         {
             switch (token)
             {
@@ -49,7 +49,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="token"></param>
         /// <returns>true:parenthesis , false:not parenthesis</returns>
-        public bool isParenthesis(char token)
+        public static bool isParenthesis(char token)
         {
             switch (token)
             {
@@ -65,7 +65,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="token"></param>
         /// <returns>true : number , false : not number</returns>
-        public bool isNumber(char token)
+        public static bool isNumber(char token)
         {
             switch (token)
             {
@@ -89,7 +89,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="token"></param>
         /// <returns>true : minus sign , false : not minus sign</returns>
-        public bool isMinusSign(char token)
+        public static bool isMinusSign(char token)
         {
             if (token == Num.MINUS)
                 return true;
@@ -102,7 +102,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        public bool isEqual(char token)
+        public static bool isEqual(char token)
         {
             if (token == EQUAL)
                 return true;
@@ -115,7 +115,7 @@ namespace CalculationServices
         /// <param name="token"></param>
         /// <returns></returns>
         /// <remarks>backspace key is not token.</remarks>
-        public bool isBackSpace(char token)
+        public static bool isBackSpace(char token)
         {
             if (token == (char)Keys.Back)
                 return true;
