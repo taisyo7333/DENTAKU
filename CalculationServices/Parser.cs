@@ -151,7 +151,7 @@ namespace CalculationServices.Parser
     public partial class Parser
     {
         #region FIELDS
-        Alphabets alphabets = new Alphabets();
+        Token token = new Token();
         #endregion
 
         #region PROPERTY
@@ -231,14 +231,14 @@ namespace CalculationServices.Parser
 
             while (true)
             {
-                var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == Alphabets.Operator.ADD)
+                var tokenCurrent = statement.ElementAt(rLeft.INDEX);
+                if (tokenCurrent == Token.Operator.ADD)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER + rRight.NUMBER;
                 }
-                else if (alphabet == Alphabets.Operator.SUB)
+                else if (tokenCurrent == Token.Operator.SUB)
                 {
                     var rRight = term(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -269,14 +269,14 @@ namespace CalculationServices.Parser
             }
             while (true)
             {
-                var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == Alphabets.Operator.MUL)
+                var token = statement.ElementAt(rLeft.INDEX);
+                if (token == Token.Operator.MUL)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER * rRight.NUMBER;
                 }
-                else if (alphabet == Alphabets.Operator.DIV)
+                else if (token == Token.Operator.DIV)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -299,8 +299,8 @@ namespace CalculationServices.Parser
         /// <returns></returns>
         private ParsedData factor(string statement, ParsedData data)
         {
-            var alphabet = statement.ElementAt(data.INDEX);
-            if(alphabet == Alphabets.Parenthesis.BEGIN )
+            var token = statement.ElementAt(data.INDEX);
+            if(token == Token.Parenthesis.BEGIN )
             {
                 data.INDEX++;
 
@@ -314,7 +314,7 @@ namespace CalculationServices.Parser
                 {
                     throw new SyntaxException(")の対応が合わず、終端に到達しました。",data.INDEX);
                 }
-                if (statement.ElementAt(rExpr.INDEX) != Alphabets.Parenthesis.END)
+                if (statement.ElementAt(rExpr.INDEX) != Token.Parenthesis.END)
                 {
                     throw new SyntaxException(")が合わない",data.INDEX);
                 }
@@ -326,19 +326,19 @@ namespace CalculationServices.Parser
             {
                 string strNumber = "";
 
-                if (isMinusSign(alphabet))
+                if (isMinusSign(token))
                 {
                     data.INDEX = data.INDEX + 1;
-                    alphabet = statement.ElementAt(data.INDEX);
+                    token = statement.ElementAt(data.INDEX);
 
-                    strNumber = Alphabets.Num.MINUS.ToString();
+                    strNumber = Token.Num.MINUS.ToString();
                 }
 
                 // 数字が一文字以上連続している場合は、数字として認識する。
-                if (!isNumber(alphabet))
+                if (!isNumber(token))
                     throw new SyntaxException("????",data.INDEX);
 
-                strNumber += alphabet.ToString();
+                strNumber += token.ToString();
 
                 var idxBegin = data.INDEX;
                 var idxEnd = idxBegin;
@@ -371,7 +371,7 @@ namespace CalculationServices.Parser
         /// <returns>true : number , false : not number</returns>
         private bool isNumber(char input)
         {
-            return alphabets.isNumber(input);
+            return token.isNumber(input);
         }
         /// <summary>
         /// Check if input character is minus sign or not.
@@ -380,7 +380,7 @@ namespace CalculationServices.Parser
         /// <returns>true : minus sign , false : not minus sign</returns>
         private bool isMinusSign(char input)
         {
-            return alphabets.isMinusSign(input);
+            return token.isMinusSign(input);
         }
         /// <summary>
         /// Check if input character is operator's sign.
@@ -389,26 +389,26 @@ namespace CalculationServices.Parser
         /// <returns></returns>
         private bool isOperator(char input)
         {
-            return alphabets.isOperator(input);
+            return token.isOperator(input);
         }
         /// <summary>
         /// Check if input character is parenthesis.
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="token"></param>
         /// <returns>true:parenthesis , false:not parenthesis</returns>
         private bool isParenthesis(char input)
         {
-            return alphabets.isParenthesis(input);
+            return token.isParenthesis(input);
         }
         /// <summary>
         /// Check if input character is able to accept for parser.
         /// 入力文字が解析器が受付可能な文字かチェックする
         /// </summary>
-        /// <param name="alphabet"></param>
+        /// <param name="input"></param>
         /// <returns>true :acceptable , false :not acceptable</returns>
-        private bool isAlphabet(char input)
+        private bool isToken(char input)
         {
-            return alphabets.isAlphabet(input);
+            return token.isToken(input);
         }
 
         /// <summary>
