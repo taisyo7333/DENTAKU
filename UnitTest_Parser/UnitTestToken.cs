@@ -65,15 +65,15 @@ namespace UnitTest_Parser
             Assert.AreEqual(true, a.isBackSpace((char)Keys.Back));
         }
         [TestMethod]
-        public void TestMethod_isAlphabet()
+        public void TestMethod_isToken()
         {
             Token a = new Token();
-            char[] alphabet = new char[]{
+            char[] tokens = new char[]{
                 '0','1','2','3','4','5','6','7','8','9',
                 '+','-','*','/',
                 '(',')',
             };
-            foreach(var v in alphabet)
+            foreach(var v in tokens)
             {
                 Assert.AreEqual(true,a.isToken(v));
             }

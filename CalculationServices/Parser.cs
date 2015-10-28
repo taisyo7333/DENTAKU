@@ -269,14 +269,14 @@ namespace CalculationServices.Parser
             }
             while (true)
             {
-                var alphabet = statement.ElementAt(rLeft.INDEX);
-                if (alphabet == Token.Operator.MUL)
+                var token = statement.ElementAt(rLeft.INDEX);
+                if (token == Token.Operator.MUL)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
                     rLeft.NUMBER = rLeft.NUMBER * rRight.NUMBER;
                 }
-                else if (alphabet == Token.Operator.DIV)
+                else if (token == Token.Operator.DIV)
                 {
                     var rRight = factor(statement, new ParsedData(rLeft.NUMBER, rLeft.INDEX + 1, rLeft.MESSAGE));
                     rLeft.INDEX = rRight.INDEX;
@@ -299,8 +299,8 @@ namespace CalculationServices.Parser
         /// <returns></returns>
         private ParsedData factor(string statement, ParsedData data)
         {
-            var alphabet = statement.ElementAt(data.INDEX);
-            if(alphabet == Token.Parenthesis.BEGIN )
+            var token = statement.ElementAt(data.INDEX);
+            if(token == Token.Parenthesis.BEGIN )
             {
                 data.INDEX++;
 
@@ -326,19 +326,19 @@ namespace CalculationServices.Parser
             {
                 string strNumber = "";
 
-                if (isMinusSign(alphabet))
+                if (isMinusSign(token))
                 {
                     data.INDEX = data.INDEX + 1;
-                    alphabet = statement.ElementAt(data.INDEX);
+                    token = statement.ElementAt(data.INDEX);
 
                     strNumber = Token.Num.MINUS.ToString();
                 }
 
                 // 数字が一文字以上連続している場合は、数字として認識する。
-                if (!isNumber(alphabet))
+                if (!isNumber(token))
                     throw new SyntaxException("????",data.INDEX);
 
-                strNumber += alphabet.ToString();
+                strNumber += token.ToString();
 
                 var idxBegin = data.INDEX;
                 var idxEnd = idxBegin;

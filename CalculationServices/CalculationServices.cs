@@ -125,7 +125,7 @@ namespace CalculationServices
         /// </summary>
         /// <param name="input">input value</param>
         /// <returns>true : input value is token , false : input value is not token.</returns>
-        public bool isAlphabet(char input)
+        public bool isToken(char input)
         {
             return token.isToken(input);
         }
@@ -133,7 +133,7 @@ namespace CalculationServices
         /// 
         /// </summary>
         /// <param name="input"></param>
-        public void inputAlphabet(char input)
+        public void inputCharacter(char input)
         {
             if(token.isOperator(input))
             {

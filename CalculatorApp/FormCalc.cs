@@ -297,7 +297,7 @@ namespace CalculatorApp
                     msg = api.inputEqual();
                     break;
                 default:
-                    api.inputAlphabet(e.KeyChar);
+                    api.inputCharacter(e.KeyChar);
                     break;
             }
           

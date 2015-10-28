@@ -343,7 +343,7 @@ namespace UnitTest
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(SyntaxException))]
-        public void TestMethod_Exception_NotAlphabet()
+        public void TestMethod_Exception_NotToken()
         {
             Parser p = new Parser();
 
@@ -355,7 +355,7 @@ namespace UnitTest
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(SyntaxException))]
-        public void TestMethod_Exception_NotAlphabet2()
+        public void TestMethod_Exception_NotToken2()
         {
             Parser p = new Parser();
 
